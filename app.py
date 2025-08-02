@@ -1,8 +1,14 @@
+import os
 import streamlit as st
+
+# Fix for libGL.so.1 error (needed by OpenCV on cloud)
+os.system('apt-get update && apt-get install -y libgl1-mesa-glx')
+
 from ultralytics import YOLO
 import cv2
 from PIL import Image
 import numpy as np
+
 
 # Load model
 model = YOLO("best.pt")
